@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+ captagent:
+  container_name: captagent
+  image: captagent_docker:1.0
+  volumes:
+    - /etc/localtime:/etc/localtime:ro
+  restart: always
+  network_mode: "host"
+  environment:
+    - TERM=xterm
+    - ETHERNET_DEV=any
+    - CAPTURE_HOST=192.168.2.122
+    - CAPTURE_PORT=9060
+    - CAPTURE_PASSWORD=myHep
+    - RTCP_ENABLE=true
+    - LOG_LEVEL=3
+    - CAPTURE_ID=1234
+    - NAT_SUPPORT=true
